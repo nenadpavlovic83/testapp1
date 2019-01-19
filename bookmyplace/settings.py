@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework', 
     #my apps added
-    'bar_rest_club',
+    'restoran1',
+    #'bar_rest_club',
     'user_acc',
     'mytab',
     'posts',
@@ -75,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media'
             ],
         },
     },
@@ -138,8 +140,9 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT = "C:\\projects\\django_bmp\\static_sdn\\static_root"
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
-MEDIA_ROOT = "C:\\projects\\django_bmp\\static_sdn\\static_media"
+#MEDIA_ROOT = "C:\\projects\\django_bmp\\static_sdn\\static_media"
 
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -154,3 +157,9 @@ print(STATIC_ROOT)
 print(STATICFILES_DIRS)
 
 
+LOGIN_REDIRECT_URL = '/'
+
+
+import dj_database_url
+db_from_env = dj_database_url.config()
+DATABASE['default'].update(db_from_env)
